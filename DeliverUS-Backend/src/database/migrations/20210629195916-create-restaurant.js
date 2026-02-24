@@ -59,6 +59,10 @@ module.exports = {
         type: Sequelize.STRING
       },
 
+      averageServiceMinutes: {
+        type: Sequelize.DOUBLE,
+      },
+
       status: {
         allowNull: false,
         type: Sequelize.ENUM,
