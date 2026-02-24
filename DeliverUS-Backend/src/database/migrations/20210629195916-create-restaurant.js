@@ -46,17 +46,17 @@ module.exports = {
 
       phone: {
         allowNull: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
 
       logo: {
         allowNull: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
 
       heroImage: {
         allowNull: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
 
       status: {
