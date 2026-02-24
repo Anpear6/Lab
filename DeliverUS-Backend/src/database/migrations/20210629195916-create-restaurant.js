@@ -6,8 +6,97 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-      }
+      },
       // TODO: Include the rest of the fields of the Restaurants table
+
+      name: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+
+      description: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+
+      adress: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+
+      postalCode: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+
+      url: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+
+      shippingCosts: {
+        allowNull: false,
+        type: Sequelize.DOUBLE
+      },
+
+      email: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+
+      phone: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+
+      logo: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+
+      heroImage: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+
+      status: {
+        allowNull: false,
+        type: Sequelize.ENUM,
+        values: ['online', 'offline', 'closed', 'temporarily closed'],
+        defaultValue: 'offline'     // Para que todos los restaurantes empiecen offline si no se le dice lo contrario.
+      },
+
+      restaurantCategoryId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'RestaurantCategories'
+          },
+          key: 'id'
+        }
+      },
+
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Users'
+          },
+          key: 'id'
+        }
+      },
+
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+      },
+
+      updateAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+      }
     })
   },
   down: async (queryInterface, Sequelize) => {
